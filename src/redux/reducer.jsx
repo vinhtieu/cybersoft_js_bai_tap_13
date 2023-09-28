@@ -8,6 +8,7 @@ import {
   Close_Shoes_Detail,
 } from "./constants";
 import data from "./database";
+import { message } from "antd";
 
 const initialState = {
   shoesList: data,
@@ -39,14 +40,25 @@ const reducer = (state = initialState, action) => {
       if (productIndex === -1) {
         newProduct = { ...action.payload, amount: 1 };
         list.push(newProduct);
-        return { ...state, cart: list };
+        message.success("Success");
+
+        return {
+          ...state,
+          cart: list,
+          isModalOpen: false,
+        };
       }
 
+      message.success("Success");
       let oldProduct = list[productIndex];
       newProduct = { ...oldProduct, amount: ++oldProduct.amount };
       list.splice(productIndex, 1, newProduct);
 
-      return { ...state, cart: list };
+      return {
+        ...state,
+        cart: list,
+        isModalOpen: false,
+      };
 
     case Calculate_Price:
       const subTotal = calcSubtotal(state.cart);
@@ -101,6 +113,8 @@ const reducer = (state = initialState, action) => {
       productID = action.payload.id;
       productIndex = list.findIndex((item) => item.id === productID);
       list.splice(productIndex, 1);
+      message.warning("Deleted");
+
       return { ...state, cart: list };
 
     case View_Shoes_Detail:
