@@ -1,0 +1,269 @@
+.container {
+  width: 100%;
+  margin: 0px auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-layout {
+  width: 90%;
+  height: 80%;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 500px 1fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas:
+    "cart shoesList shoesList"
+    "cart shoesList shoesList"
+    "cart shoesList shoesList";
+}
+
+.shoes-list {
+  grid-area: shoesList;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 50px 0px;
+  justify-content: space-between;
+}
+
+.shoes-detail {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 1fr 1fr 35%;
+  grid-template-rows: 1fr;
+  grid-template-areas: "section-A section-A section-B";
+}
+
+.shoes-detail__img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.shoes-detail__heading {
+  font-size: 40px;
+  margin-bottom: 16px;
+}
+
+.show-detail__price {
+  font-size: 24px;
+  margin-bottom: 32px;
+}
+.show-detail__desc {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.section-A {
+  grid-area: section-A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.section-B {
+  grid-area: section-B;
+}
+
+:where(.css-dev-only-do-not-override-1ck3jst).ant-modal .ant-modal-content {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 10px;
+}
+
+/* *Cart* */
+
+.section--cart {
+  grid-area: cart;
+}
+
+.cart {
+  background: white;
+  position: sticky;
+  min-height: 500px;
+  top: 0;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.cart__item-container {
+  background: white;
+}
+
+.cart-item {
+  width: 100%;
+  padding: 16px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 24px;
+  align-items: center;
+  gap: 8px;
+}
+
+.cart-item__img-container {
+  width: 150px;
+  height: 150px;
+  margin: 0;
+}
+
+.cart-item__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.cart-item__heading {
+  font-size: 20px;
+  margin-bottom: 3rem;
+}
+
+.cart-item__amount {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  padding: 2px;
+  text-align: center;
+}
+
+.cart-item__btn-amount {
+  width: 30px;
+  height: 30px;
+  padding: 2px;
+  margin-top: auto;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  background-color: lightgrey;
+  border: none;
+}
+
+.cart-item__btn-close {
+  position: absolute;
+  top: 10px;
+  right: 16px;
+  cursor: pointer;
+}
+
+.cart-item__close-icon {
+  cursor: pointer;
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+.cart__footer {
+  width: 100%;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart__footer--subtotal {
+  display: flex;
+  flex-direction: row;
+  padding: 4px 16px;
+  justify-content: space-between;
+}
+
+.cart__footer--tax {
+  display: flex;
+  flex-direction: row;
+  padding: 4px 16px 8px;
+  justify-content: space-between;
+}
+
+.cart__footer--total {
+  padding: 16px;
+  font-size: 24px;
+  font-weight: bold;
+  background: #f8f9fa;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* *CartItem* */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-height: 500px;
+  width: calc(33% - 4px);
+  padding: 16px;
+  margin-bottom: 8px;
+  background: white;
+}
+
+.card__img-container {
+  margin: 0;
+  height: 280px;
+  margin: 0;
+}
+
+.card__heading {
+  font-weight: normal;
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.card__price {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+@media screen and (max-width: 1747px) {
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-height: 500px;
+    width: calc(33% - 4px);
+    padding: 16px;
+    margin-bottom: 8px;
+    background: white;
+  }
+}
+@media screen and (max-width: 1400px) {
+  .grid-layout {
+    width: 90%;
+    height: 80%;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 400px 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas:
+      "cart shoesList shoesList"
+      "cart shoesList shoesList"
+      "cart shoesList shoesList";
+  }
+
+  .cart-item__heading {
+    font-size: 16px;
+    margin-bottom: 3rem;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-height: 500px;
+    width: calc(50% - 4px);
+    padding: 16px;
+    margin-bottom: 8px;
+    background: white;
+  }
+}
+@media screen and (max-width: 1000px) {
+}
